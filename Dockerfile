@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
   libxrandr2 \
   libgbm1 \
   libxkbcommon0 \
+  libasound2 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
