@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
   bzip2 \
   libnss3 \
   libdbus-1-3 \
+  libatk1.0-0 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
