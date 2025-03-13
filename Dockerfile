@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
   xz-utils \
   bzip2 \
   libnss3 \
+  libdbus-1-3 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
