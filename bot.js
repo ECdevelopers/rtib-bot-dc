@@ -19,6 +19,8 @@ const SERVER_MINECRAFT_IMAGE_INFO = process.env.SERVER_MINECRAFT_IMAGE_INFO;
 const SERVER_MINECRAFT_PORT = process.env.SERVER_MINECRAFT_PORT;
 const SERVER_MINECRAFT_ADDRES = process.env.SERVER_MINECRAFT_ADDRES;
 
+const PUPPERTER_BRWSER = process.env.PUPPERTER_BRWSER;
+
 // Menggunakan Stealth Plugin agar tidak terdeteksi sebagai bot
 puppeteer.use(StealthPlugin());
 
@@ -111,7 +113,7 @@ async function startAternosServer(interaction) {
       console.log("🌐 Meluncurkan ulang browser...");
       browser = await puppeteer.launch({
         headless: 'new',
-        executablePath: "./chrome/linux-134.0.6998.88/chrome-linux64/chrome",
+        executablePath: PUPPERTER_BRWSER,
         // executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
         userDataDir: "./user_data",
         args: ["--no-sandbox", "--disable-setuid-sandbox", "--remote-debugging-port=9222"],
