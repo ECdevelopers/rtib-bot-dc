@@ -26,6 +26,9 @@ RUN apt-get update && apt-get install -y \
   libxcomposite1 \
   libcups2 \
   libxdamage1 \
+  libxfixes3 \
+  libxrandr2 \
+  libgbm1 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
