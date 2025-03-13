@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
   libnss3 \
   libdbus-1-3 \
   libatk1.0-0 \
+  libatk-bridge2.0-0 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
