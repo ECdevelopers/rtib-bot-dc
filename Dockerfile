@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
   libdbus-1-3 \
   libatk1.0-0 \
   libatk-bridge2.0-0 \
+  libcups2 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
