@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y \
   libgbm1 \
   libxkbcommon0 \
   libasound2 \
+  libxkbcommon-x11-0 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
