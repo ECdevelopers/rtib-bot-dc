@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
   # chromium \
   xz-utils \
   bzip2 \
+  libnss3 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
