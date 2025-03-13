@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
   libatk-bridge2.0-0 \
   libxcomposite1 \
   libcups2 \
+  libxdamage1 \
   curl \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
