@@ -1,3 +1,16 @@
-2025/03/17-20:16:39.720 8601 Reusing MANIFEST /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Session Storage/MANIFEST-000001
-2025/03/17-20:16:39.721 8601 Recovering log #25
-2025/03/17-20:16:39.722 8601 Reusing old log /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Session Storage/000025.log 
+2025/03/19-17:26:27.455 7129 Reusing MANIFEST /home/ramadan/coding/bot-v/bot-discordrtib-with-pupperter-core/user_data/Default/Session Storage/MANIFEST-000001
+2025/03/19-17:26:27.457 7129 Recovering log #25
+2025/03/19-17:26:27.457 7129 Level-0 table #28: started
+2025/03/19-17:26:27.463 7129 Level-0 table #28: 10570 bytes OK
+2025/03/19-17:26:27.463 7129 Recovering log #28
+2025/03/19-17:26:27.464 7129 Reusing old log /home/ramadan/coding/bot-v/bot-discordrtib-with-pupperter-core/user_data/Default/Session Storage/000028.log 
+2025/03/19-17:26:27.466 7129 Delete type=0 #25
+2025/03/19-17:26:27.467 712a Compacting 4@0 + 1@1 files
+2025/03/19-17:26:27.486 712a Generated table #29@0: 1632 keys, 36803 bytes
+2025/03/19-17:26:27.486 712a Compacted 4@0 + 1@1 files => 36803 bytes
+2025/03/19-17:26:27.488 712a compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/03/19-17:26:27.490 712a Delete type=2 #17
+2025/03/19-17:26:27.490 712a Delete type=2 #28
+2025/03/19-17:26:27.490 712a Delete type=2 #26
+2025/03/19-17:26:27.490 712a Delete type=2 #20
+2025/03/19-17:26:27.490 712a Delete type=2 #23

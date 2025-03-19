@@ -1,8 +1,6 @@
 import "dotenv/config";
 import { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder, EmbedBuilder } from "discord.js";
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import { launch, resolveBuildId } from '@puppeteer/browsers';
+import puppeteer from 'puppeteer-core';
 import http from "http";
 
 // Konfigurasi dotenv
@@ -21,8 +19,7 @@ const SERVER_MINECRAFT_ADDRES = process.env.SERVER_MINECRAFT_ADDRES;
 
 const PUPPERTER_BRWSER = process.env.PUPPERTER_BRWSER;
 
-// Menggunakan Stealth Plugin agar tidak terdeteksi sebagai bot
-puppeteer.use(StealthPlugin());
+
 
 const bot = new Client({
   intents: [
@@ -111,17 +108,19 @@ async function startAternosServer(interaction) {
 
     if (!browser || !page) {
       console.log("🌐 Meluncurkan ulang browser...");
-      browser = await puppeteer.launch({
-        headless: 'new',
+       browser = await puppeteer.launch({
+        headless: false,
         executablePath: PUPPERTER_BRWSER,
-        // executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
         userDataDir: "./user_data",
-        args: ["--no-sandbox", "--disable-setuid-sandbox", "--remote-debugging-port=9222"],
+        args: ["--no-sandbox", "--disable-setuid-sandbox","--disable-blink-features=AutomationControlled","--disable-features=site-per-process",
+        "--disable-web-security"],
       });
+      
       page = await browser.newPage();
-      await page.setUserAgent(
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-      );
+      await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
+      await page.evaluateOnNewDocument(() => {
+        Object.defineProperty(navigator, 'webdriver', { get: () => false });
+      });
     }
 
     await page.goto(ATERNOST_URL, { waitUntil: "networkidle2", timeout: 0 });
@@ -130,10 +129,11 @@ async function startAternosServer(interaction) {
     //   await page.type("input.username", ATERNOS_USER);
     //   await page.type("input.password", ATERNOS_PASS);
     //   await page.click("button.login-button.btn.btn-main.join-left");
-    //   await page.waitForSelector(".server-body", { timeout: 60000 });
+      await page.waitForSelector(".server-body", { timeout: 60000 });
     // }
 
     console.log("✅ Login berhasil!");
+    await page.waitForSelector('[data-id="K7dXd2v8o34gxlFV"]', { timeout: 30000 });
     await page.click('[data-id="K7dXd2v8o34gxlFV"]');
 
     let startButton;
@@ -203,40 +203,20 @@ async function startAternosServer(interaction) {
 async function checkAternosStatus() {
   try {
     if (!browser || !page) {
-      console.log("🌐 Browser belum terbuka, meluncurkan...");
-    
-      // Tentukan browser yang akan digunakan
-      // const browserName = 'chrome';
-      
-      // Ambil versi terbaru yang tersedia
-      // const buildId = await resolveBuildId(browserName, 'stable');
-
-
-// if (!buildId) {
-//   throw new Error(`Tidak dapat menemukan buildId untuk browser: ${browserName}`);
-// }
-    
-      // Jalankan browser
-      // browser = await launch({
-      //   browser: 'chrome',
-      //   executablePath: './chrome/linux-134.0.6998.88/chrome-linux64/chrome',
-      //   buildId: '134.0.6998.88',
-      //   headless: 'new', // HARUS headless untuk server seperti Koyeb
-      //   args: ["--no-sandbox", "--disable-setuid-sandbox", "--remote-debugging-port=9222"],
-      // });
-
-      browser = await puppeteer.launch({
-        headless: 'new',
-        executablePath: "./chrome/linux-134.0.6998.88/chrome-linux64/chrome",
-        // executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+      console.log("🌐 Meluncurkan ulang browser...");
+       browser = await puppeteer.launch({
+        headless: false,
+        executablePath: PUPPERTER_BRWSER,
         userDataDir: "./user_data",
-        args: ["--no-sandbox", "--disable-setuid-sandbox", "--remote-debugging-port=9222"],
+        args: ["--no-sandbox", "--disable-setuid-sandbox","--disable-blink-features=AutomationControlled","--disable-features=site-per-process",
+        "--disable-web-security"],
       });
-    
+      
       page = await browser.newPage();
-      await page.setUserAgent(
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-      );
+      await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
+      await page.evaluateOnNewDocument(() => {
+        Object.defineProperty(navigator, 'webdriver', { get: () => false });
+      });
     }
     
     // Cek apakah halaman masih aktif
