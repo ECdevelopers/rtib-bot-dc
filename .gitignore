@@ -1,5 +1,5 @@
 node_modules/
 .env
-# chrome/
+chrome/
 pnpm-lock.yaml
 # user_data/

@@ -1,3 +1,6 @@
-2025/03/13-13:27:38.337 a9dc Reusing MANIFEST /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Local Storage/leveldb/MANIFEST-000001
-2025/03/13-13:27:38.343 a9dc Recovering log #22
-2025/03/13-13:27:38.343 a9dc Reusing old log /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Local Storage/leveldb/000022.log 
+2025/03/17-20:16:39.660 8601 Reusing MANIFEST /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Local Storage/leveldb/MANIFEST-000001
+2025/03/17-20:16:39.669 8601 Recovering log #26
+2025/03/17-20:16:39.670 8601 Reusing old log /home/ramadan/coding/bot-v/bot-discordrtib/user_data/Default/Local Storage/leveldb/000026.log 
+2025/03/17-20:17:39.672 8603 Level-0 table #30: started
+2025/03/17-20:17:39.677 8603 Level-0 table #30: 23418 bytes OK
+2025/03/17-20:17:39.680 8603 Delete type=0 #26
